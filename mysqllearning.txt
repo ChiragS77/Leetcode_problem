@@ -1,0 +1,6 @@
+SQLBolt
+SQLZoo
+SQL Murder Mystery
+HackerRank SQL
+Build projects with MySQL + Spring Boot
+LeetCode SQL
