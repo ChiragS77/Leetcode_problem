@@ -51,12 +51,30 @@ public class Problem2{
     }
 
 
+    //maximum subarray sum using prefix sum method
+
+    public static void findPrefixSum(int arr[]){
+
+        int sum = arr[0];
+        for(int i=1; i<arr.length; i++){
+            sum+= arr[i];
+            arr[i] = sum;
+        }
+
+        for(int i : arr){
+            System.out.print(" "+i);
+        }
+    }
+
 
     
     public static void main(String[] args) {
-        int arr[] = {1,2,3,4,5};
+        // int arr[] = {1,2,3,4,5};
         // printSubarray(arr);
-        subArraySum(arr);
+        // subArraySum(arr);
+        int arr[] = {1,-2,6,-1,3};
+        findPrefixSum(arr);
+
 
     }  
 
