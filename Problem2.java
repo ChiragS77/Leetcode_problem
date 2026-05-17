@@ -40,6 +40,7 @@ public class Problem2{
 
             for(int k = start; k<=end; k++){
                 sum+=arr[k];
+                System.out.println(" "+sum);
             }
             if(sum>maxSum){
                 maxSum = sum;
@@ -50,8 +51,9 @@ public class Problem2{
         System.out.print("Max sum is: "+maxSum);
     }
 
+    
 
-    //maximum subarray sum using prefix sum method
+
 
     public static void findPrefixSum(int arr[]){
 
@@ -66,6 +68,36 @@ public class Problem2{
         }
     }
 
+        //maximum subarray sum using prefix sum method
+
+        public static void maxPrefixSum(int arr[]){
+            int prefix[] = new int[arr.length];
+            prefix[0] = arr[0];
+            for(int i =1; i<arr.length ; i++){
+                prefix[i] = prefix[i-1] + arr[i];
+
+            }
+            int maxSum = Integer.MIN_VALUE;
+
+            int currSum = 0;
+            for(int i =0; i<arr.length; i++){
+                int start = i; 
+                for(int j = 0; j<arr.length; j++){
+                    currSum = 0;
+                    int end = j;
+                    currSum = start ==0 ? prefix[end]:prefix[end] - prefix[start-1];
+                    System.out.print(" "+currSum);
+
+                    if(currSum > maxSum){
+                        maxSum = currSum;
+                    }
+                    System.out.println();
+                }
+            }
+            System.out.println("Maximum sum is: "+maxSum);
+
+        }
+
 
     
     public static void main(String[] args) {
@@ -73,7 +105,8 @@ public class Problem2{
         // printSubarray(arr);
         // subArraySum(arr);
         int arr[] = {1,-2,6,-1,3};
-        findPrefixSum(arr);
+        // findPrefixSum(arr);
+        maxPrefixSum(arr);
 
 
     }  
