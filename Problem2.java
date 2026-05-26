@@ -97,6 +97,39 @@ public class Problem2{
             System.out.println("Maximum sum is: "+maxSum);
 
         }
+//what if all number are negative
+public static boolean  checkNegative(int arr[]){
+    for(int i = 0 ; i<arr.length;i++){
+        if(arr[i]>0){
+            return true;
+        }
+    }
+    return false;
+}
+        public static void kadans(int arr[]){
+           boolean x =  checkNegative(arr);
+           int max = Integer.MIN_VALUE;
+           if(!x){
+            for(int i =0;i<arr.length;i++){
+                if(arr[i]>max){
+                    max = arr[i];
+                }
+            }
+           }
+
+
+            int maxSum = Integer.MIN_VALUE;
+            int currSum = 0;
+            for(int i =0; i<arr.length ; i++){
+                currSum += arr[i];
+
+                if(currSum<0){
+                    currSum = 0;
+                }
+                maxSum = Math.max(currSum, maxSum);
+            }
+            System.out.println("MAX sum is: "+maxSum);
+        }
 
 
     
@@ -104,9 +137,10 @@ public class Problem2{
         // int arr[] = {1,2,3,4,5};
         // printSubarray(arr);
         // subArraySum(arr);
-        int arr[] = {1,-2,6,-1,3};
+        int arr[] = {-1,-2,-6,-1,-3};
         // findPrefixSum(arr);
-        maxPrefixSum(arr);
+        // maxPrefixSum(arr);
+        kadans(arr);
 
 
     }  
